@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Records - KantongKu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #e6f0ea;
+    }
+  </style>
+</head>
+<body class="min-h-screen p-6">
+
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+    <!-- Income Panel -->
+    <section class="bg-green-100 rounded-lg shadow-lg p-6">
+      <h2 class="text-lg font-semibold text-green-900 mb-4">Income</h2>
+      <div class="space-y-3 max-h-64 overflow-y-auto">
+        <div class="flex justify-between bg-white p-3 rounded shadow">
+          <div>
+            <p class="font-semibold">Salary</p>
+            <p class="text-sm text-gray-600">01 Jan 2024</p>
+          </div>
+          <p class="font-bold text-green-700">Rp 5,000,000</p>
+        </div>
+        <div class="flex justify-between bg-white p-3 rounded shadow">
+          <div>
+            <p class="font-semibold">Freelance</p>
+            <p class="text-sm text-gray-600">15 Jan 2024</p>
+          </div>
+          <p class="font-bold text-green-700">Rp 1,200,000</p>
+        </div>
+        <!-- More income records can be added here -->
+      </div>
+      <div class="mt-4 font-semibold text-green-900 text-right">Total: Rp 6,200,000</div>
+    </section>
+
+    <!-- Expense Panel -->
+    <section class="bg-red-100 rounded-lg shadow-lg p-6">
+      <h2 class="text-lg font-semibold text-red-900 mb-4">Expense</h2>
+      <div class="space-y-3 max-h-64 overflow-y-auto">
+        <div class="flex justify-between bg-white p-3 rounded shadow">
+          <div>
+            <p class="font-semibold">Food</p>
+            <p class="text-sm text-gray-600">02 Jan 2024</p>
+          </div>
+          <p class="font-bold text-red-700">Rp 500,000</p>
+        </div>
+        <div class="flex justify-between bg-white p-3 rounded shadow">
+          <div>
+            <p class="font-semibold">Transport</p>
+            <p class="text-sm text-gray-600">10 Jan 2024</p>
+          </div>
+          <p class="font-bold text-red-700">Rp 300,000</p>
+        </div>
+        <!-- More expense records can be added here -->
+      </div>
+      <div class="mt-4 font-semibold text-red-900 text-right">Total: Rp 800,000</div>
+    </section>
+  </main>
+
+</body>
+</html>
