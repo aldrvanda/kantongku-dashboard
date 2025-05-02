@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Savings - KantongKu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #e6f0ea;
+    }
+  </style>
+</head>
+<body class="min-h-screen p-6">
+
+  <header class="mb-6">
+    <h1 class="text-2xl font-semibold text-green-900">My Savings</h1>
+  </header>
+
+  <main class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+    <!-- Balance and Info -->
+    <section class="bg-white rounded-lg shadow-lg p-6 col-span-1 md:col-span-1">
+      <h2 class="text-lg font-semibold text-gray-700 mb-4">Balance</h2>
+      <p class="text-3xl font-bold text-green-800 mb-4">Rp 7,500,000.00</p>
+      <p class="text-gray-600 mb-4">
+        Take a deep breath. You are doing great managing your finances. Keep it up!
+      </p>
+      <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Start Saving</button>
+    </section>
+
+    <!-- Savings Graph -->
+    <section class="bg-white rounded-lg shadow-lg p-6 col-span-2">
+      <h2 class="text-lg font-semibold text-gray-700 mb-4">Savings Over Time</h2>
+      <canvas id="savingsChart" class="w-full h-48"></canvas>
+    </section>
+
+    <!-- Calendar -->
+    <section class="bg-white rounded-lg shadow-lg p-6 col-span-1 md:col-span-1">
+      <h2 class="text-lg font-semibold text-gray-700 mb-4">Calendar</h2>
+      <div id="calendar" class="text-center text-gray-700">
+        <!-- Simple calendar placeholder -->
+        <p>April 2024</p>
+        <div class="grid grid-cols-7 gap-1 text-sm">
+          <div class="font-semibold">Sun</div>
+          <div class="font-semibold">Mon</div>
+          <div class="font-semibold">Tue</div>
+          <div class="font-semibold">Wed</div>
+          <div class="font-semibold">Thu</div>
+          <div class="font-semibold">Fri</div>
+          <div class="font-semibold">Sat</div>
+          <!-- Days -->
+          <div class="text-gray-400">30</div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+          <div>10</div>
+          <div>11</div>
+          <div>12</div>
+          <div>13</div>
+          <div>14</div>
+          <div>15</div>
+          <div>16</div>
+          <div>17</div>
+          <div>18</div>
+          <div>19</div>
+          <div>20</div>
+          <div>21</div>
+          <div>22</div>
+          <div>23</div>
+          <div>24</div>
+          <div>25</div>
+          <div>26</div>
+          <div>27</div>
+          <div>28</div>
+          <div>29</div>
+          <div>30</div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Savings Goals -->
+    <section class="bg-white rounded-lg shadow-lg p-6 col-span-2 md:col-span-2">
+      <h2 class="text-lg font-semibold text-gray-700 mb-4">Savings Goals</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-semibold text-green-900 mb-1">Vacation Fund</h3>
+          <p class="text-sm text-gray-600 mb-2">Save for a trip to Bali</p>
+          <div class="w-full bg-green-200 rounded-full h-4">
+            <div class="bg-green-600 h-4 rounded-full" style="width: 70%;"></div>
+          </div>
+          <p class="text-sm text-green-700 mt-1">70% saved</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-green-900 mb-1">Emergency Fund</h3>
+          <p class="text-sm text-gray-600 mb-2">Save for unexpected expenses</p>
+          <div class="w-full bg-green-200 rounded-full h-4">
+            <div class="bg-green-600 h-4 rounded-full" style="width: 40%;"></div>
+          </div>
+          <p class="text-sm text-green-700 mt-1">40% saved</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctxSavings = document.getElementById('savingsChart').getContext('2d');
+    const savingsChart = new Chart(ctxSavings, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Savings',
+          data: [1000000, 1500000, 2000000, 3000000, 4000000, 5000000],
+          borderColor: '#4ade80',
+          backgroundColor: 'rgba(74, 222, 128, 0.3)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 4,
+          pointBackgroundColor: '#4ade80'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        },
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
