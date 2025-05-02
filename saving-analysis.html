@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saving Analysis - KantongKu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #e6f0ea;
+    }
+  </style>
+</head>
+<body class="min-h-screen p-6">
+
+  <header class="mb-6">
+    <h1 class="text-2xl font-semibold text-green-900">Saving Analysis</h1>
+  </header>
+
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+    <!-- Pie Chart -->
+    <section class="bg-white rounded-lg shadow-lg p-6">
+      <h2 class="text-lg font-semibold text-gray-700 mb-4">Analysis</h2>
+      <canvas id="savingPieChart" class="w-full h-48"></canvas>
+    </section>
+
+    <!-- Bar Chart -->
+    <section class="bg-white rounded-lg shadow-lg p-6">
+      <h2 class="text-lg font-semibold text-gray-700 mb-4">Income vs Expense</h2>
+      <canvas id="savingBarChart" class="w-full h-48"></canvas>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctxPie = document.getElementById('savingPieChart').getContext('2d');
+    const savingPieChart = new Chart(ctxPie, {
+      type: 'doughnut',
+      data: {
+        labels: ['Savings', 'Expenses', 'Income'],
+        datasets: [{
+          data: [40, 35, 25],
+          backgroundColor: ['#4ade80', '#f87171', '#fbbf24']
+        }]
+      },
+      options: {
+        cutout: '70%',
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: '#374151', font: { size: 14 } }
+          }
+        }
+      }
+    });
+
+    const ctxBar = document.getElementById('savingBarChart').getContext('2d');
+    const savingBarChart = new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [
+          {
+            label: 'Income',
+            data: [500000, 600000, 700000, 800000, 900000, 1000000],
+            backgroundColor: '#4ade80'
+          },
+          {
+            label: 'Expense',
+            data: [300000, 400000, 350000, 450000, 500000, 550000],
+            backgroundColor: '#f87171'
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
